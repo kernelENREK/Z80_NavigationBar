@@ -30,7 +30,7 @@
             If (depth < GetBackgroundColor.Count) Then
                 Return GetBackgroundColor(depth)
             Else
-                Return DEFAULT_BACKGROUD_COLOR_NO_DEPH
+                Return DEFAULT_BACKGROUND_COLOR_NO_DEPH
             End If
         End Function
 
@@ -94,7 +94,7 @@
 
 #Region "Theme 'colors'"
 
-        Private DEFAULT_BACKGROUD_COLOR_NO_DEPH As Color = Color.FromArgb(50, 105, 190)
+        Private DEFAULT_BACKGROUND_COLOR_NO_DEPH As Color = Color.FromArgb(50, 105, 190)
         Private DEFAULT_SELECTED_BACKGROUND_COLOR_NO_DEPTH As Color = Color.FromArgb(0, 68, 124)
         Private DEFAULT_HOVER_BACKGROUND_COLOR_NO_DEPTH As Color = Color.FromArgb(15, 45, 60)
         Private DEFAULT_BRUSH_FONT_ITEM_SELECTED_NO_DEPTH As SolidBrush = New SolidBrush(Color.White)
@@ -105,7 +105,7 @@
 
         ' Note: If you want more 'depth' colors/brushes or fonts, just add it on l list of each Getxxxxxxx Property
 
-        Public ReadOnly Property GetBackgroundColor As List(Of Color)
+        Private ReadOnly Property GetBackgroundColor As List(Of Color)
             Get
                 Dim l As List(Of Color) = New List(Of Color)()
                 l.Add(Color.FromArgb(35, 80, 175))

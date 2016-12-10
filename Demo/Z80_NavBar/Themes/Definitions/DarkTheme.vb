@@ -30,7 +30,7 @@
             If (depth < GetBackgroundColor.Count) Then
                 Return GetBackgroundColor(depth)
             Else
-                Return DEFAULT_BACKGROUND_COLOR_NO_DEPH
+                Return DEFAULT_BACKGROUND_COLOR_NO_DEPTH
             End If
         End Function
 
@@ -94,7 +94,7 @@
 
 #Region "Theme 'colors'"
 
-        Private DEFAULT_BACKGROUND_COLOR_NO_DEPH As Color = Color.FromArgb(50, 55, 60)
+        Private DEFAULT_BACKGROUND_COLOR_NO_DEPTH As Color = Color.FromArgb(50, 55, 60)
         Private DEFAULT_SELECTED_BACKGROUND_COLOR_NO_DEPTH As Color = Color.FromArgb(0, 68, 124)
         Private DEFAULT_HOVER_BACKGROUND_COLOR_NO_DEPTH As Color = Color.FromArgb(15, 45, 60)
         Private DEFAULT_BRUSH_FONT_ITEM_SELECTED_NO_DEPTH As SolidBrush = New SolidBrush(Color.White)

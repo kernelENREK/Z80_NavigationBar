@@ -211,11 +211,11 @@ Public Class DemoItems
                     New NavBarItem() With {.ID = 12002, .ParentID = 12, .Text = "Writing", .Height = 30},
                     New NavBarItem() With {.ID = 12003, .ParentID = 12, .Text = "Reading", .Height = 30},
                     New NavBarItem() With {.ID = 12004, .ParentID = 12, .Text = "Comments", .Height = 30},
-                    New NavBarItem() With {.ID = 12004, .ParentID = 12, .Text = "Media", .Height = 30},
-                    New NavBarItem() With {.ID = 12004, .ParentID = 12, .Text = "Share", .Height = 30},
-                    New NavBarItem() With {.ID = 12004, .ParentID = 12, .Text = "AdControl", .Height = 30},
-                    New NavBarItem() With {.ID = 12004, .ParentID = 12, .Text = "OpenID", .Height = 30},
-                    New NavBarItem() With {.ID = 12004, .ParentID = 12, .Text = "Webhooks", .Height = 30}
+                    New NavBarItem() With {.ID = 12005, .ParentID = 12, .Text = "Media", .Height = 30},
+                    New NavBarItem() With {.ID = 12006, .ParentID = 12, .Text = "Share", .Height = 30},
+                    New NavBarItem() With {.ID = 12007, .ParentID = 12, .Text = "AdControl", .Height = 30},
+                    New NavBarItem() With {.ID = 12008, .ParentID = 12, .Text = "OpenID", .Height = 30},
+                    New NavBarItem() With {.ID = 12009, .ParentID = 12, .Text = "Webhooks", .Height = 30}
                 }
             }
         }

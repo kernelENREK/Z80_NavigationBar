@@ -1,5 +1,5 @@
 # Zilog80 NavigationBar Control
-Navigation control for Windows Forms
+Navigation control for Windows Forms (VB.NET and C#)
 
 Custom control working as navigation control. Useful for settings forms.
 
@@ -11,6 +11,9 @@ Sample Demo #2:
 
 Sample Demo #3:
 ![Alt text](https://github.com/kernelENREK/Z80_NavigationBar/blob/master/Demo3.gif "Sample demo")
+
+"Real world" Settings Demo:
+![Alt text](https://github.com/kernelENREK/Z80_NavigationBar/blob/master/ExampleSettingsDemo.gif "Settings demo")
 
 
 

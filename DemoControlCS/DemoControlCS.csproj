@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AD27EAB-F5AE-40D8-A6D7-C3E6C55519E7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoControlCS</RootNamespace>
+    <AssemblyName>DemoControlCS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DemoItems.cs" />
+    <Compile Include="FrmDemo1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDemo1.Designer.cs">
+      <DependentUpon>FrmDemo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDemo2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDemo2.Designer.cs">
+      <DependentUpon>FrmDemo2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDemo3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDemo3.Designer.cs">
+      <DependentUpon>FrmDemo3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDemo1.resx">
+      <DependentUpon>FrmDemo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDemo2.resx">
+      <DependentUpon>FrmDemo2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDemo3.resx">
+      <DependentUpon>FrmDemo3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpAppearance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpAppearanceH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpAppearanceS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpComments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpCommentsH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpCommentsS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpDesktop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpDesktopH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpDesktopS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpLinks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpLinksH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpLinksS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpMedia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpMediaH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpMediaS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpPages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpPagesH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpPagesS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpPost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpPostH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpPostS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpSettingsH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpSettingsS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpStore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpStoreH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpStoreS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpSuggestions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpSuggestionsH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpSuggestionsS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpTools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpToolsH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpToolsS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpUsers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpUsersH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpUsersS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Z80NavBarControl\Z80NavBarControl.vbproj">
+      <Project>{D893BDAB-6276-4BC6-892F-D1193FBA8F3C}</Project>
+      <Name>Z80NavBarControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

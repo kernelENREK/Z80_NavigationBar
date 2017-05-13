@@ -9,6 +9,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExampleSettings", "ExampleS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoCS", "DemoCS\DemoCS.csproj", "{AD6D0FA8-732F-44B0-A3EF-0573BD0220C2}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Z80NavBarControl", "Z80NavBarControl\Z80NavBarControl.vbproj", "{D893BDAB-6276-4BC6-892F-D1193FBA8F3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AD6D0FA8-732F-44B0-A3EF-0573BD0220C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD6D0FA8-732F-44B0-A3EF-0573BD0220C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD6D0FA8-732F-44B0-A3EF-0573BD0220C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D893BDAB-6276-4BC6-892F-D1193FBA8F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D893BDAB-6276-4BC6-892F-D1193FBA8F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D893BDAB-6276-4BC6-892F-D1193FBA8F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D893BDAB-6276-4BC6-892F-D1193FBA8F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

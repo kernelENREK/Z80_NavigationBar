@@ -32,35 +32,18 @@ Public Class SettingsForm
 
 #Region "Zilog80 Navigation control stuff"
 
-    Private Enum eSettingsPanels
-        AppType = 1
-        Hardware = 2
-        Scales = 2001
-        TemperatureSensor = 2002
-        Database = 3
-    End Enum
-
     Private Sub ShowSettings(typePanel As eSettingsPanels)
         Z80_Navigation1.ItemSelect(typePanel)
     End Sub
 
     Private Sub Z80_Navigation1_SelectedItem(item As NavBarItem) Handles Z80_Navigation1.SelectedItem
-        Panel1.Visible = False
-        PanelApplicationTypePrm.Visible = False
-        PanelScalePrm.Visible = False
-        PanelTempSensorPrm.Visible = False
-        PanelDatabasePrm.Visible = False
-        Select Case DirectCast(item.ID, eSettingsPanels)
-            Case eSettingsPanels.AppType
-                PanelApplicationTypePrm.Visible = True
-            Case eSettingsPanels.Scales
-                PanelScalePrm.Visible = True
-            Case eSettingsPanels.TemperatureSensor
-                PanelTempSensorPrm.Visible = True
-            Case eSettingsPanels.Database
-                PanelDatabasePrm.Visible = True
-        End Select
-        Panel1.Visible = True
+        For Each control In Panel1.Controls.OfType(Of Panel)
+            If (control.Tag IsNot Nothing AndAlso Convert.ToInt32(control.Tag) = item.ID) Then
+                control.Visible = True
+            Else
+                control.Visible = False
+            End If
+        Next
     End Sub
 
 #End Region

@@ -2,6 +2,7 @@
 ''' Z80_Navigation user control working as 'navigation control'
 '''     ChangeLog:
 '''         - Version: 1.0.0.0 / Release 11-08-2016
+'''         - Version: 1.0.0.1 / Release 05-17-2017 (Tooltip behaviour)
 '''     
 ''' MIT license.
 ''' 
@@ -606,6 +607,11 @@ Public Class Z80_Navigation
         ''' <param name="item"></param>
         Public Event ItemClick(ByVal item As Z80NavBar.NavBarItem)
 
+        ''' <summary>
+        ''' Tooltip control
+        ''' </summary>
+        Private _tooltip As ToolTip
+
 #End Region
 
 #Region "Initialization"
@@ -618,6 +624,8 @@ Public Class Z80_Navigation
             Me.Height = navItem.Height
             Me.Width = width
             Me.BackColor = theme.BackgroundColor(depth)
+
+            Me._tooltip = New ToolTip()
 
             _initialized = True
         End Sub
@@ -709,6 +717,9 @@ Public Class Z80_Navigation
 #End Region
 
         Private Sub MyPanel_MouseEnter(sender As Object, e As EventArgs) Handles Me.MouseEnter
+            If (Not String.IsNullOrWhiteSpace(_navItem.ToolTip)) Then
+                _tooltip.SetToolTip(Me, _navItem.ToolTip)
+            End If
             If (Not _navItem.Selected) Then
                 _hover = True
                 Me.Invalidate()

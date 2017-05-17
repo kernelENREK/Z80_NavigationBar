@@ -14,21 +14,21 @@ namespace DemoControlCS
         {
             // Sample 1. Only Root items. No childs ----------------------------------------------------
             sample1 = new List<NavBarItem> {
-            new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default =  DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopS}},
+            new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default =  DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopS}, ToolTip = "tooltip Desktop"},
             new NavBarItem {ID = 2, Text = "Store", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpStore, Hover = DemoControlCS.Properties.Resources.wpStoreH, Selected = DemoControlCS.Properties.Resources.wpStoreS}},
             new NavBarItem {ID = 3, Text = "Posts", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpPost, Hover = DemoControlCS.Properties.Resources.wpPostH, Selected = DemoControlCS.Properties.Resources.wpPostS}},
             new NavBarItem {ID = 4, Text = "Media", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpMedia, Hover = DemoControlCS.Properties.Resources.wpMediaH, Selected = DemoControlCS.Properties.Resources.wpMediaS}},
-            new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS}}
+            new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS}, ToolTip = "tooltip Links"}
         };
 
             // Sample 2. Only 1 level childs items -------------------------------------------------
             sample2 = new List<NavBarItem> {
-            new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopS},
+            new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopS}, ToolTip = "tooltip Desktop",
                 Childs = new List<NavBarItem> {
-                    new NavBarItem {ID = 1001, ParentID = 1, Text = "Start",Height = 30},
+                    new NavBarItem {ID = 1001, ParentID = 1, Text = "Start",Height = 30, ToolTip = "tooltip Start"},
                     new NavBarItem {ID = 1002, ParentID = 1, Text = "My comments", Height = 30},
                     new NavBarItem {ID = 1003, ParentID = 1, Text = "Site Statistics", Height = 30},
-                    new NavBarItem {ID = 1004, ParentID = 1, Text = "My blogs", Height = 30},
+                    new NavBarItem {ID = 1004, ParentID = 1, Text = "My blogs", Height = 30, ToolTip = "tooltip My blogs"},
                     new NavBarItem {ID = 1005, ParentID = 1, Text = "Blogs I follow", Height = 30},
                     new NavBarItem {ID = 1006, ParentID = 1, Text = "Akismed statistics", Height = 30},
                     new NavBarItem {ID = 1007, ParentID = 1, Text = "Omnisearch", Height = 30}
@@ -57,7 +57,7 @@ namespace DemoControlCS
                     new NavBarItem {ID = 4002, ParentID = 4, Text = "Add new", Height = 30}
                 }
             },
-            new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS},
+            new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS}, ToolTip = "tooltip Links",
                 Childs = new List<NavBarItem> {
                     new NavBarItem {ID = 5001, ParentID = 5, Text = "All", Height = 30},
                     new NavBarItem {ID = 5002, ParentID = 5, Text = "Add new", Height = 30},
@@ -68,17 +68,17 @@ namespace DemoControlCS
 
             // Sample 3. Very 'complex tree-node items'. Until 5th depth childs
             sample3 = new List<NavBarItem> {
-            new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopH},
+            new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopH}, ToolTip = "tooltip Desktop",
                 Childs = new List<NavBarItem> {
-                    new NavBarItem {ID = 1001, ParentID = 1, Text = "Start", Height = 30},
+                    new NavBarItem {ID = 1001, ParentID = 1, Text = "Start", Height = 30, ToolTip = "tooltip Start"},
                     new NavBarItem {ID = 1002, ParentID = 1, Text = "My comments", Height = 30},
                     new NavBarItem {ID = 1003, ParentID = 1, Text = "Site Statistics", Height = 30},
-                    new NavBarItem {ID = 1004, ParentID = 1, Text = "My blogs", Height = 30,
+                    new NavBarItem {ID = 1004, ParentID = 1, Text = "My blogs", Height = 30, ToolTip = "tooltip My blogs",
                         Childs = new List<NavBarItem> {
-                            new NavBarItem {ID = 10041, ParentID = 1004, Text = "Custom #1", Height = 30, LeftChild = 24},
-                            new NavBarItem {ID = 10042, ParentID = 1004, Text = "Custom #2", Height = 30, LeftChild = 24,
+                            new NavBarItem {ID = 10041, ParentID = 1004, Text = "Custom #1", Height = 30, LeftChild = 24, ToolTip = "tooltip Custom #1"},
+                            new NavBarItem {ID = 10042, ParentID = 1004, Text = "Custom #2", Height = 30, LeftChild = 24, ToolTip = "tooltip Custom #2",
                                 Childs = new List<NavBarItem> {
-                                    new NavBarItem {ID = 100421, ParentID = 10042, Text = "XXX1", Height = 30, LeftChild = 44},
+                                    new NavBarItem {ID = 100421, ParentID = 10042, Text = "XXX1", Height = 30, LeftChild = 44, ToolTip = "tooltip XXX1"},
                                     new NavBarItem {ID = 100422, ParentID = 10042, Text = "XXX2", Height = 30, LeftChild = 44}
                                 }
                             },
@@ -120,7 +120,7 @@ namespace DemoControlCS
                     new NavBarItem {ID = 4002, ParentID = 4, Text = "Add new", Height = 30}
                 }
             },
-            new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS},
+            new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS}, ToolTip = "tooltip Links",
                 Childs = new List<NavBarItem> {
                     new NavBarItem {ID = 5001, ParentID = 5, Text = "All", Height = 30},
                     new NavBarItem {ID = 5002, ParentID = 5, Text = "Add new", Height = 30},

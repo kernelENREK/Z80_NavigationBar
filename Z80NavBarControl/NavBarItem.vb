@@ -68,6 +68,11 @@
         ''' </summary>
         ''' <returns></returns>
         Public Property ContentBackColor As Color
+        ''' <summary>
+        ''' Item tooltip
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property ToolTip As String
 
         ''' <summary>
         ''' Default values

@@ -3,6 +3,7 @@
 '''     ChangeLog:
 '''         - Version: 1.0.0.0 / Release 11-08-2016
 '''         - Version: 1.0.0.1 / Release 05-17-2017 (Tooltip behaviour)
+'''         - Version: 1.0.0.2 / Release 05-18-2015 (AutoVerticalScrollBar propery)
 '''     
 ''' MIT license.
 ''' 
@@ -224,6 +225,64 @@ Public Class Z80_Navigation
     Private _childDepth As Integer = 0
 
     ''' <summary>
+    ''' Auxiliary variable for sum all items heights. Usefull for displaying VerticalScrollBar
+    ''' </summary>
+    Private _itemsTotalHeight As Integer
+
+    Private offsetVerticalScrollBar As Integer = 0
+
+#Region "AutoVerticalScrollBar"
+
+    Private Sub Panel1_MouseWheel(sender As Object, e As MouseEventArgs) Handles Panel1.MouseWheel
+        If (Me.AutoVerticalScrollBar) Then
+            'Debug.Print($"Panel1_MouseWheel:{Now} Panel1.VertialScroll.Value:{Panel1.VerticalScroll.Value}   Delta:{e.Delta} Y:{e.Y}")
+            Try
+                VScrollBar1.Value = Panel1.VerticalScroll.Value
+            Catch ex As Exception
+                Debug.Print($"EX:Panel1_MouseWheel{Now} Panel1.VerticalScroll.Value:{Panel1.VerticalScroll.Value}, VScrollBar1.Maximum: {VScrollBar1.Maximum}")
+            End Try
+        End If
+    End Sub
+
+    Private Sub VScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles VScrollBar1.Scroll
+        Debug.Print($"VScrollBar1_Scroll:{Now} Value:{e.NewValue}")
+        Try
+            Panel1.AutoScrollPosition = New Point(0, VScrollBar1.Value)
+        Catch ex As Exception
+            Debug.Print($"EX:VScrollBar1_Scroll:{Now}")
+        End Try
+    End Sub
+
+    Private Sub PreDrawChilds(item As Z80NavBar.NavBarItem)
+        If (item.Expanded And item.Visible) Then
+            For Each c In item.Childs
+                If (c.Visible) Then
+                    _itemsTotalHeight += c.Height
+                    If (c.Childs IsNot Nothing AndAlso c.Childs.Count > 0) Then
+                        PreDrawChilds(c)
+                    End If
+                End If
+            Next
+        End If
+    End Sub
+
+    Private Function VerticalScrollVisible(panelHeight As Integer) As Boolean
+        _itemsTotalHeight = 0
+
+        For Each item In _navBarItems
+            If (item.Visible) Then
+                _itemsTotalHeight += item.Height
+                If (item.Childs IsNot Nothing AndAlso item.Childs.Count > 0) Then
+                    PreDrawChilds(item)
+                End If
+            End If
+        Next
+        Return (_itemsTotalHeight > panelHeight)
+    End Function
+
+#End Region
+
+    ''' <summary>
     ''' Draw child items (Recursive)
     ''' </summary>
     ''' <param name="item"></param>
@@ -254,8 +313,16 @@ Public Class Z80_Navigation
     ''' 'MAIN' method that draws all the items
     ''' </summary>
     Private Sub DrawControlItems()
-        Me.BackColor = _theme.BackgroundColor(0)
 
+        Dim bar = VerticalScrollVisible(Me.Height)
+        VScrollBar1.Visible = bar AndAlso Me.AutoVerticalScrollBar
+
+        If (VScrollBar1.Visible) Then
+            VScrollBar1.Maximum = _itemsTotalHeight
+            VScrollBar1.LargeChange = Me.Height
+        End If
+
+        Me.BackColor = _theme.BackgroundColor(0)
         Panel1.Controls.Clear()
         Panel1.BackColor = _theme.BackgroundColor(0)
 
@@ -286,6 +353,11 @@ Public Class Z80_Navigation
                 If (p._navItem.ID = finalSelectedItem.ID) Then
                     If (p.Location.Y > (Me.Height / 2) + (Me.Height / 4)) Then
                         Panel1.AutoScrollPosition = New Point(0, p.Location.Y)
+                        If (VScrollBar1.Visible) Then
+                            VScrollBar1.Value = p.Location.Y
+                        End If
+                    Else
+                        If (VScrollBar1.Visible) Then VScrollBar1.Value = 0
                     End If
                 End If
             End If
@@ -562,6 +634,36 @@ Public Class Z80_Navigation
     End Sub
 
 #End Region
+
+#End Region
+
+#Region "Custom properties"
+
+    Private _autoVerticalScrollBar As Boolean
+
+    <ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Visible)>
+    <ComponentModel.Category("Appearance")>
+    <ComponentModel.Description("If the sum of navigation items heights is greater than navigation control height it shows a vertical scroll bar")>
+    Public Property AutoVerticalScrollBar As Boolean
+        Get
+            Return _autoVerticalScrollBar
+        End Get
+        Set(value As Boolean)
+            _autoVerticalScrollBar = value
+            If (value) Then
+                Panel1.AutoScroll = False
+                Panel1.VerticalScroll.Maximum = Me.Height
+                Panel1.AutoScroll = True
+            Else
+                Panel1.AutoScroll = False
+                Panel1.VerticalScroll.Maximum = 0
+                Panel1.HorizontalScroll.Maximum = 0
+                Panel1.VerticalScroll.Visible = False
+                Panel1.HorizontalScroll.Visible = False
+                Panel1.AutoScroll = True
+            End If
+        End Set
+    End Property
 
 #End Region
 

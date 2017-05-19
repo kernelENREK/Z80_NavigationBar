@@ -20,7 +20,8 @@ namespace DemoControlCS
             z80_Navigation1.SelectedItem += Z80_Navigation1_SelectedItem;
             z80_Navigation1.Initialize(new DemoItems().sample3, new ThemeSelector(Theme.Dark).CurrentTheme);
             z80_Navigation1.ItemSelect(1);
-            chkAutoverticalScrollBar.Checked = z80_Navigation1.AutoVerticalScrollBar;            
+            chkAutoverticalScrollBar.Checked = z80_Navigation1.AutoVerticalScrollBar;
+            chkShowItemsBorder.Checked = z80_Navigation1.ShowItemsBorder;
             this.Load += FrmDemo3_Load;
         }
 
@@ -70,6 +71,12 @@ namespace DemoControlCS
             z80_Navigation1.AutoVerticalScrollBar = chkAutoverticalScrollBar.Checked;
             if (!z80_Navigation1.AutoVerticalScrollBar)
                 z80_Navigation1.ItemSelect(1);
+        }
+
+        private void chkShowItemsBorder_CheckedChanged(object sender, EventArgs e)
+        {
+            z80_Navigation1.ShowItemsBorder = chkShowItemsBorder.Checked;
+            z80_Navigation1.ItemSelect(1);
         }
     }
 }

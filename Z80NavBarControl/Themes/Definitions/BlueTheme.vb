@@ -90,6 +90,14 @@
             End If
         End Function
 
+        Public Function BorderSolidColor(depth As Integer) As Pen Implements ITheme.BorderSolidColor
+            If (depth < GetFontItemNotSelected.Count) Then
+                Return GetPenBorderSolidColor(depth)
+            Else
+                Return DEFAULT_PEN_BORDER_NO_DEPTH
+            End If
+        End Function
+
 #End Region
 
 #Region "Theme 'colors'"
@@ -102,6 +110,7 @@
         Private DEFAULT_BRUSH_FONT_HOVER_NO_DEPTH As SolidBrush = New SolidBrush(Color.FromArgb(54, 239, 124))
         Private DEFAULT_FONT_ITEM_NO_DEPTH As Font = New Font("Segoe UI", 8.25, FontStyle.Regular)
         Private DEFAULT_FONT_ITEM_SELECTED_NO_DEPTH As Font = New Font("Segoe UI", 8.25, FontStyle.Bold)
+        Private DEFAULT_PEN_BORDER_NO_DEPTH As Pen = New Pen(Color.DodgerBlue)
 
         ' Note: If you want more 'depth' colors/brushes or fonts, just add it on l list of each Getxxxxxxx Property
 
@@ -192,6 +201,18 @@
                 l.Add(New Font("Segoe UI", 10.5, FontStyle.Bold))
                 l.Add(New Font("Segoe UI", 10.5, FontStyle.Bold))
                 l.Add(New Font("Segoe UI", 9.25, FontStyle.Bold))
+                Return l
+            End Get
+        End Property
+
+        Private ReadOnly Property GetPenBorderSolidColor As List(Of Pen)
+            Get
+                Dim l As List(Of Pen) = New List(Of Pen)()
+
+                l.Add(New Pen(Color.FromArgb(35 * 2, 80 * 2, 255)))
+                l.Add(New Pen(Color.FromArgb(50 * 2, 105 * 2, 255)))
+                l.Add(New Pen(Color.FromArgb(60 * 2, 115 * 2, 255)))
+                l.Add(New Pen(Color.FromArgb(70 * 2, 125 * 2, 255)))
                 Return l
             End Get
         End Property

@@ -14,6 +14,7 @@
         Function BrushFontHover(depth As Integer) As SolidBrush
         Function FontItem(depth As Integer) As Font
         Function FontItemSelected(depth As Integer) As Font
+        Function BorderSolidColor(depth As Integer) As Pen
         ReadOnly Property ThemeEnum As Theme
     End Interface
 

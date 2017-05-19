@@ -4,6 +4,7 @@
 '''         - Version: 1.0.0.0 / Release 11-08-2016
 '''         - Version: 1.0.0.1 / Release 05-17-2017 (Tooltip behaviour)
 '''         - Version: 1.0.0.2 / Release 05-18-2015 (AutoVerticalScrollBar propery)
+'''         - Version: 1.0.0.3 / Release 05-19-2015 (ShowItemsBorder propery)
 '''     
 ''' MIT license.
 ''' 
@@ -294,7 +295,7 @@ Public Class Z80_Navigation
                     mPanel.Location = New Point(0, _item_yLocation)
                     mPanel.Anchor = AnchorStyles.Left Or AnchorStyles.Top Or AnchorStyles.Right
                     _item_yLocation += c.Height
-                    mPanel.Initialize(c, Me.Width, _theme, _childDepth)
+                    mPanel.Initialize(c, Me.Width, _theme, _childDepth, Me.ShowItemsBorder)
 
                     AddHandler mPanel.ItemClick, AddressOf OnItemClick
                     Panel1.Controls.Add(mPanel)
@@ -334,7 +335,7 @@ Public Class Z80_Navigation
                 mPanel.Location = New Point(0, _item_yLocation)
                 mPanel.Anchor = AnchorStyles.Left Or AnchorStyles.Top Or AnchorStyles.Right
                 _item_yLocation += item.Height
-                mPanel.Initialize(item, Me.Width, _theme, _childDepth)
+                mPanel.Initialize(item, Me.Width, _theme, _childDepth, Me.ShowItemsBorder)
 
                 AddHandler mPanel.ItemClick, AddressOf OnItemClick
                 Panel1.Controls.Add(mPanel)
@@ -665,6 +666,11 @@ Public Class Z80_Navigation
         End Set
     End Property
 
+    <ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Visible)>
+    <ComponentModel.Category("Appearance")>
+    <ComponentModel.Description("Show border for each navigation items")>
+    Public Property ShowItemsBorder As Boolean
+
 #End Region
 
 #Region "### CUSTOM Panel ###"
@@ -714,14 +720,20 @@ Public Class Z80_Navigation
         ''' </summary>
         Private _tooltip As ToolTip
 
+        ''' <summary>
+        ''' New property introduced in 1.0.0.3
+        ''' </summary>
+        Private _showItemBorder As Boolean
+
 #End Region
 
 #Region "Initialization"
 
-        Public Sub Initialize(navItem As Z80NavBar.NavBarItem, width As Integer, theme As Z80NavBar.Themes.ITheme, depth As Integer)
+        Public Sub Initialize(navItem As Z80NavBar.NavBarItem, width As Integer, theme As Z80NavBar.Themes.ITheme, depth As Integer, showItemBorder As Boolean)
             _navItem = navItem
             _theme = theme
             _depth = depth
+            _showItemBorder = showItemBorder
 
             Me.Height = navItem.Height
             Me.Width = width
@@ -764,6 +776,7 @@ Public Class Z80_Navigation
                                 e.Graphics.FillPolygon(b, p)
                             End If
                         End If
+                        If (_showItemBorder) Then e.Graphics.DrawRectangle(_theme.BorderSolidColor(_depth), 0, 0, Me.Width - 1, Me.Height)
                     Else 'not hover
                         If (Not _navItem.Selected) Then
                             If (_navItem.Icon IsNot Nothing) Then
@@ -772,6 +785,7 @@ Public Class Z80_Navigation
 
                             e.Graphics.DrawString(_navItem.Text, _theme.FontItem(_depth), _theme.BrushFontItemNotSelected(_depth), New PointF(xPos, yPos))
                             Me.BackColor = _theme.BackgroundColor(_depth)
+                            If (_showItemBorder) Then e.Graphics.DrawRectangle(_theme.BorderSolidColor(_depth), 0, 0, Me.Width - 1, Me.Height)
                             ' v glyph only in childs (not root nodes)
                             If (_navItem.ParentID IsNot Nothing AndAlso _navItem.Childs IsNot Nothing) Then
                                 Dim p1 As New Point(Me.Width - 4, Me.Height / 2)
@@ -788,6 +802,7 @@ Public Class Z80_Navigation
                             e.Graphics.DrawString(_navItem.Text, _theme.FontItemSelected(_depth), _theme.BrushFontItemSelected(_depth), New PointF(xPos, yPos))
                             If (IsNothing(_navItem.ParentID) OrElse (_navItem.Childs IsNot Nothing AndAlso _navItem.Childs.Count > 0)) Then
                                 Me.BackColor = _theme.SelectedBackgroundColor(_depth)
+                                If (_showItemBorder) Then e.Graphics.DrawRectangle(_theme.BorderSolidColor(_depth), 0, 0, Me.Width - 1, Me.Height)
                                 ' < glyph:
                                 If (_navItem.Content) Then
                                     Dim p1 As New Point(Me.Width - 8, Me.Height / 2)
@@ -797,6 +812,8 @@ Public Class Z80_Navigation
                                     Dim b As SolidBrush = New SolidBrush(_navItem.ContentBackColor)
                                     e.Graphics.FillPolygon(b, p)
                                 End If
+                            Else
+                                If (_showItemBorder) Then e.Graphics.DrawRectangle(_theme.BorderSolidColor(_depth), 0, 0, Me.Width - 1, Me.Height)
                             End If
                         End If
                     End If

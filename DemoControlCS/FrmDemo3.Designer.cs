@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.z80_Navigation1 = new Z80NavBarControl.Z80_Navigation();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.chkAutoverticalScrollBar = new System.Windows.Forms.CheckBox();
             this.BtnSwitchTheme = new System.Windows.Forms.Button();
             this.BtnUnselect = new System.Windows.Forms.Button();
             this.Label1 = new System.Windows.Forms.Label();
             this.LblInfo = new System.Windows.Forms.Label();
-            this.z80_Navigation1 = new Z80NavBarControl.Z80_Navigation();
-            this.chkAutoverticalScrollBar = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.chkShowItemsBorder = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.chkShowItemsBorder);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.chkAutoverticalScrollBar);
@@ -65,6 +67,46 @@
             this.splitContainer1.Size = new System.Drawing.Size(784, 561);
             this.splitContainer1.SplitterDistance = 160;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // z80_Navigation1
+            // 
+            this.z80_Navigation1.AutoVerticalScrollBar = true;
+            this.z80_Navigation1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.z80_Navigation1.Location = new System.Drawing.Point(0, 0);
+            this.z80_Navigation1.Name = "z80_Navigation1";
+            this.z80_Navigation1.Size = new System.Drawing.Size(160, 561);
+            this.z80_Navigation1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(293, 119);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 35);
+            this.button2.TabIndex = 48;
+            this.button2.Text = "ItemID 12009";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(199, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 35);
+            this.button1.TabIndex = 47;
+            this.button1.Text = "ItemID 1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // chkAutoverticalScrollBar
+            // 
+            this.chkAutoverticalScrollBar.AutoSize = true;
+            this.chkAutoverticalScrollBar.Location = new System.Drawing.Point(21, 190);
+            this.chkAutoverticalScrollBar.Name = "chkAutoverticalScrollBar";
+            this.chkAutoverticalScrollBar.Size = new System.Drawing.Size(125, 17);
+            this.chkAutoverticalScrollBar.TabIndex = 46;
+            this.chkAutoverticalScrollBar.Text = "AutoVerticalScrollBar";
+            this.chkAutoverticalScrollBar.UseVisualStyleBackColor = true;
+            this.chkAutoverticalScrollBar.CheckedChanged += new System.EventHandler(this.chkAutoverticalScrollBar_CheckedChanged);
             // 
             // BtnSwitchTheme
             // 
@@ -108,45 +150,16 @@
             this.LblInfo.TabIndex = 24;
             this.LblInfo.Text = "Content Sample";
             // 
-            // z80_Navigation1
+            // chkShowItemsBorder
             // 
-            this.z80_Navigation1.AutoVerticalScrollBar = true;
-            this.z80_Navigation1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.z80_Navigation1.Location = new System.Drawing.Point(0, 0);
-            this.z80_Navigation1.Name = "z80_Navigation1";
-            this.z80_Navigation1.Size = new System.Drawing.Size(160, 561);
-            this.z80_Navigation1.TabIndex = 0;
-            // 
-            // chkAutoverticalScrollBar
-            // 
-            this.chkAutoverticalScrollBar.AutoSize = true;
-            this.chkAutoverticalScrollBar.Location = new System.Drawing.Point(21, 190);
-            this.chkAutoverticalScrollBar.Name = "chkAutoverticalScrollBar";
-            this.chkAutoverticalScrollBar.Size = new System.Drawing.Size(125, 17);
-            this.chkAutoverticalScrollBar.TabIndex = 46;
-            this.chkAutoverticalScrollBar.Text = "AutoVerticalScrollBar";
-            this.chkAutoverticalScrollBar.UseVisualStyleBackColor = true;
-            this.chkAutoverticalScrollBar.CheckedChanged += new System.EventHandler(this.chkAutoverticalScrollBar_CheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(199, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "ItemID 1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(293, 119);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 35);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "ItemID 12009";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.chkShowItemsBorder.AutoSize = true;
+            this.chkShowItemsBorder.Location = new System.Drawing.Point(21, 213);
+            this.chkShowItemsBorder.Name = "chkShowItemsBorder";
+            this.chkShowItemsBorder.Size = new System.Drawing.Size(109, 17);
+            this.chkShowItemsBorder.TabIndex = 50;
+            this.chkShowItemsBorder.Text = "ShowItemsBorder";
+            this.chkShowItemsBorder.UseVisualStyleBackColor = true;
+            this.chkShowItemsBorder.CheckedChanged += new System.EventHandler(this.chkShowItemsBorder_CheckedChanged);
             // 
             // FrmDemo3
             // 
@@ -177,5 +190,6 @@
         private System.Windows.Forms.CheckBox chkAutoverticalScrollBar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox chkShowItemsBorder;
     }
 }

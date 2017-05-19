@@ -1,7 +1,7 @@
 # Zilog80 NavigationBar Control
 Navigation control for Windows Forms (VB.NET and C#)
 
-**New features: (current verson 1.0.0.3)**
+**New features: (current version 1.0.0.3)**
 
 - Tooltips
 - AutoVerticalScrollBar visible or not visible (Mouse Wheel works always)

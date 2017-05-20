@@ -1,6 +1,11 @@
 # Zilog80 NavigationBar Control
 Navigation control for Windows Forms (VB.NET and C#)
 
+**NuGet package**
+The control is available as a NuGet package at [nuget.org.](https://www.nuget.org/packages/Z80NavigationBar)
+
+Available TargetFrameworks from NuGet package: .NET 2.0, .NET 3.5 (including client profile), .NET 4.0 (including client profile), .NET 4.5 to .NET 4.6.1 versions
+
 **New features: (current version 1.0.0.3)**
 
 - Tooltips

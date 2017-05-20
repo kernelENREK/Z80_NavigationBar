@@ -27,7 +27,12 @@
 ''' CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
 ''' OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ''' </summary>
+<ComponentModel.ToolboxItem(True)>
+<ComponentModel.DefaultBindingProperty("AutoVerticalScrollBar")>
+<ToolboxBitmap(GetType(Z80_Navigation), "ToolboxZ80Navbar.bmp")>
 Public Class Z80_Navigation
+
+
 
 #Region "Variables"
 
@@ -642,6 +647,10 @@ Public Class Z80_Navigation
 
     Private _autoVerticalScrollBar As Boolean
 
+    ''' <summary>
+    ''' If the sum of navigation items heights is greater than navigation control height it shows a vertical scroll bar
+    ''' </summary>
+    ''' <returns></returns>
     <ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Visible)>
     <ComponentModel.Category("Appearance")>
     <ComponentModel.Description("If the sum of navigation items heights is greater than navigation control height it shows a vertical scroll bar")>
@@ -666,6 +675,10 @@ Public Class Z80_Navigation
         End Set
     End Property
 
+    ''' <summary>
+    ''' Show border for each navigation items
+    ''' </summary>
+    ''' <returns></returns>
     <ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Visible)>
     <ComponentModel.Category("Appearance")>
     <ComponentModel.Description("Show border for each navigation items")>

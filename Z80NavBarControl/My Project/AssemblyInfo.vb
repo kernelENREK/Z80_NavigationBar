@@ -8,8 +8,8 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("Z80NavBarControl")> 
-<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyTitle("Z80NavBarControl")>
+<Assembly: AssemblyDescription("Windows forms user control for navigation control")>
 <Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("Z80NavBarControl")> 
 <Assembly: AssemblyCopyright("Copyright ©  2017")> 
@@ -18,7 +18,7 @@ Imports System.Runtime.InteropServices
 <Assembly: ComVisible(False)>
 
 'El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-<Assembly: Guid("2acb5d3e-1e74-4076-bd80-22043b36dbea")> 
+<Assembly: Guid("2acb5d3e-1e74-4076-bd80-22043b36dbea")>
 
 ' La información de versión de un ensamblado consta de los cuatro valores siguientes:
 '
@@ -30,5 +30,5 @@ Imports System.Runtime.InteropServices
 ' Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión 
 ' mediante el carácter '*', como se muestra a continuación:
 
-<Assembly: AssemblyVersion("1.0.*")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.0.0.3")>
+<Assembly: AssemblyFileVersion("1.0.0.3")>

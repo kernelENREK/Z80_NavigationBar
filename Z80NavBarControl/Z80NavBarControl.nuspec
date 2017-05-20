@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Z80NavigationBar</id>
+    <version>1.0.0.3</version>
+    <title>Winforms user control for navigation control</title>
+    <authors>Zilog80</authors>
+    <owners>Zilog80</owners>
+    <licenseUrl>https://github.com/kernelENREK/Z80_NavigationBar/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/kernelENREK/Z80_NavigationBar</projectUrl>
+    <iconUrl>https://github.com/kernelENREK/Z80_NavigationBar/blob/master/Z80NavBarControl/NugetIcon.ico?raw=true</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>User control that allow put on your Windows Form application a 'navigation tree' like Wordpress admin panel or bootstrap navigation menu</description>
+    <releaseNotes>After package install, build your solution. In user control does not display on Visual Studio Toolbox, follow the readme.txt instructions</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Navigation UserControl GDI Themes Skins winforms menu</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\Z80NavBarControl.dll" target="lib\net452\"/>
+    <file src="bin\Release\Z80NavBarControl.xml" target="lib\net452\"/>
+    <file src="readme.txt" target=""/>
+    <file src="readme.txt" target="content\readme.txt"/>
+  </files>
+</package>

@@ -32,8 +32,6 @@
 <ToolboxBitmap(GetType(Z80_Navigation), "ToolboxZ80Navbar.bmp")>
 Public Class Z80_Navigation
 
-
-
 #Region "Variables"
 
     ''' <summary>
@@ -354,6 +352,25 @@ Public Class Z80_Navigation
 
         _item_yLocation = 0
 
+#If NETFX2_0 Then
+        For Each control As Control In Panel1.Controls
+            If (TypeOf control Is NavBarItemPanel) Then
+                Dim p As NavBarItemPanel = DirectCast(control, NavBarItemPanel)
+                If (finalSelectedItem IsNot Nothing) Then
+                    If (p._navItem.ID = finalSelectedItem.ID) Then
+                        If (p.Location.Y > (Me.Height / 2) + (Me.Height / 4)) Then
+                            Panel1.AutoScrollPosition = New Point(0, p.Location.Y)
+                            If (VScrollBar1.Visible) Then
+                                VScrollBar1.Value = p.Location.Y
+                            End If
+                        Else
+                            If (VScrollBar1.Visible) Then VScrollBar1.Value = 0
+                        End If
+                    End If
+                End If
+            End If
+        Next
+#Else
         For Each p In Panel1.Controls.OfType(Of NavBarItemPanel)
             If (finalSelectedItem IsNot Nothing) Then
                 If (p._navItem.ID = finalSelectedItem.ID) Then
@@ -368,6 +385,7 @@ Public Class Z80_Navigation
                 End If
             End If
         Next
+#End If
 
         ' YES, you are right, this 2 lines are a completely shit:
         GC.WaitForPendingFinalizers()
@@ -535,7 +553,27 @@ Public Class Z80_Navigation
 
         _parentID_List = New List(Of Integer)()
         GetAllParents(item)
+
+#If NETFX2_0 Then
+        Dim tmp As New List(Of Integer)
+        For Each id As Integer In _parentID_List
+            Dim bInserted As Boolean = False
+            For k As Integer = 0 To tmp.Count - 1
+                If (tmp(k) = id) Then
+                    bInserted = True
+                    Exit For
+                End If
+            Next
+            If (Not bInserted) Then tmp.Add(id)
+        Next
+
+        _parentID_List = New List(Of Integer)()
+        For Each tmpId As Integer In tmp
+            _parentID_List.Add(tmpId)
+        Next
+#Else
         _parentID_List = _parentID_List.Distinct().ToList()
+#End If
         _parentID_List.Reverse()
 
         _bChildFound = False
@@ -849,9 +887,15 @@ Public Class Z80_Navigation
 #End Region
 
         Private Sub MyPanel_MouseEnter(sender As Object, e As EventArgs) Handles Me.MouseEnter
+#If NETFX2_0 Or NETFX3_5 Then
+            If (Not String.IsNullOrEmpty(_navItem.ToolTip)) Then
+                _tooltip.SetToolTip(Me, _navItem.ToolTip)
+            End If
+#Else
             If (Not String.IsNullOrWhiteSpace(_navItem.ToolTip)) Then
                 _tooltip.SetToolTip(Me, _navItem.ToolTip)
             End If
+#End If
             If (Not _navItem.Selected) Then
                 _hover = True
                 Me.Invalidate()

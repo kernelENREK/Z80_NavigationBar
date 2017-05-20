@@ -16,8 +16,26 @@
     <tags>Navigation UserControl GDI Themes Skins winforms menu</tags>
   </metadata>
   <files>
-    <file src="bin\Release\Z80NavBarControl.dll" target="lib\net452\"/>
-    <file src="bin\Release\Z80NavBarControl.xml" target="lib\net452\"/>
+    <file src="bin\Release\NugetRelease\net20\Z80NavBarControl.dll" target="lib\net20\"/>
+    <file src="bin\Release\NugetRelease\net20\Z80NavBarControl.xml" target="lib\net20\"/>
+    <file src="bin\Release\NugetRelease\net35\Z80NavBarControl.dll" target="lib\net35\"/>
+    <file src="bin\Release\NugetRelease\net35\Z80NavBarControl.xml" target="lib\net35\"/>
+    <file src="bin\Release\NugetRelease\net35-client\Z80NavBarControl.dll" target="lib\net35-client\"/>
+    <file src="bin\Release\NugetRelease\net35-client\Z80NavBarControl.xml" target="lib\net35-client\"/>
+    <file src="bin\Release\NugetRelease\net40\Z80NavBarControl.dll" target="lib\net40\"/>
+    <file src="bin\Release\NugetRelease\net40\Z80NavBarControl.xml" target="lib\net40\"/>
+    <file src="bin\Release\NugetRelease\net40-client\Z80NavBarControl.dll" target="lib\net40-client\"/>
+    <file src="bin\Release\NugetRelease\net40-client\Z80NavBarControl.xml" target="lib\net40-client\"/>
+    <file src="bin\Release\NugetRelease\net45\Z80NavBarControl.dll" target="lib\net45\"/>
+    <file src="bin\Release\NugetRelease\net45\Z80NavBarControl.xml" target="lib\net45\"/>
+    <file src="bin\Release\NugetRelease\net451\Z80NavBarControl.dll" target="lib\net451\"/>
+    <file src="bin\Release\NugetRelease\net451\Z80NavBarControl.xml" target="lib\net451\"/>
+    <file src="bin\Release\NugetRelease\net452\Z80NavBarControl.dll" target="lib\net452\"/>
+    <file src="bin\Release\NugetRelease\net452\Z80NavBarControl.xml" target="lib\net452\"/>
+    <file src="bin\Release\NugetRelease\net46\Z80NavBarControl.dll" target="lib\net46\"/>
+    <file src="bin\Release\NugetRelease\net46\Z80NavBarControl.xml" target="lib\net46\"/>
+    <file src="bin\Release\NugetRelease\net461\Z80NavBarControl.dll" target="lib\net461\"/>
+    <file src="bin\Release\NugetRelease\net461\Z80NavBarControl.xml" target="lib\net461\"/>
     <file src="readme.txt" target=""/>
     <file src="readme.txt" target="content\readme.txt"/>
   </files>

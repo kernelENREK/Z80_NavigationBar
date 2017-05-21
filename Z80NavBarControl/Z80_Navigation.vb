@@ -29,6 +29,7 @@
 ''' </summary>
 <ComponentModel.ToolboxItem(True)>
 <ComponentModel.DefaultBindingProperty("AutoVerticalScrollBar")>
+<ComponentModel.DefaultEvent("SelectedItem")>
 <ToolboxBitmap(GetType(Z80_Navigation), "ToolboxZ80Navbar.bmp")>
 Public Class Z80_Navigation
 

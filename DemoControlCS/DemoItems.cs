@@ -9,17 +9,35 @@ namespace DemoControlCS
         public List<NavBarItem> sample1;
         public List<NavBarItem> sample2;
         public List<NavBarItem> sample3;
+        public List<NavBarItem> sample4Orion;
 
         public DemoItems()
         {
             // Sample 1. Only Root items. No childs ----------------------------------------------------
             sample1 = new List<NavBarItem> {
-            new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default =  DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopS}, ToolTip = "tooltip Desktop"},
-            new NavBarItem {ID = 2, Text = "Store", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpStore, Hover = DemoControlCS.Properties.Resources.wpStoreH, Selected = DemoControlCS.Properties.Resources.wpStoreS}},
-            new NavBarItem {ID = 3, Text = "Posts", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpPost, Hover = DemoControlCS.Properties.Resources.wpPostH, Selected = DemoControlCS.Properties.Resources.wpPostS}},
-            new NavBarItem {ID = 4, Text = "Media", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpMedia, Hover = DemoControlCS.Properties.Resources.wpMediaH, Selected = DemoControlCS.Properties.Resources.wpMediaS}},
-            new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS}, ToolTip = "tooltip Links"}
-        };
+                new NavBarItem {ID = 1, Text = "Desktop", Icon = new ItemIcon {Default =  DemoControlCS.Properties.Resources.wpDesktop, Hover = DemoControlCS.Properties.Resources.wpDesktopH, Selected = DemoControlCS.Properties.Resources.wpDesktopS}, ToolTip = "tooltip Desktop"},
+                new NavBarItem {ID = 2, Text = "Store", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpStore, Hover = DemoControlCS.Properties.Resources.wpStoreH, Selected = DemoControlCS.Properties.Resources.wpStoreS}},
+                new NavBarItem {ID = 3, Text = "Posts", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpPost, Hover = DemoControlCS.Properties.Resources.wpPostH, Selected = DemoControlCS.Properties.Resources.wpPostS}},
+                new NavBarItem {ID = 4, Text = "Media", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpMedia, Hover = DemoControlCS.Properties.Resources.wpMediaH, Selected = DemoControlCS.Properties.Resources.wpMediaS}},
+                new NavBarItem {ID = 5, Text = "Links", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.wpLinks, Hover = DemoControlCS.Properties.Resources.wpLinksH, Selected = DemoControlCS.Properties.Resources.wpLinksS}, ToolTip = "tooltip Links"}
+            };
+
+            sample4Orion = new List<NavBarItem> {
+                new NavBarItem {ID = 1, Text = "Main Menu", Icon = new ItemIcon {Default =  DemoControlCS.Properties.Resources.nav_home, Hover = DemoControlCS.Properties.Resources.nav_home, Selected = DemoControlCS.Properties.Resources.nav_home}, ToolTip = "tooltip Main Menu", Height = 40 },
+                new NavBarItem {ID = 2, Text = "Settings", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.nav_settings, Hover = DemoControlCS.Properties.Resources.nav_settings, Selected = DemoControlCS.Properties.Resources.nav_settings}, Height = 40},
+                new NavBarItem {ID = 3, Text = "Startup", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.nav_bulb, Hover = DemoControlCS.Properties.Resources.nav_bulb, Selected = DemoControlCS.Properties.Resources.nav_bulb}, Height = 40},
+                new NavBarItem {ID = 4, Text = "File Assembly", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.nav_new, Hover = DemoControlCS.Properties.Resources.nav_new, Selected = DemoControlCS.Properties.Resources.nav_new}, Height = 40,
+                    Childs = new List<NavBarItem> {
+                        new NavBarItem {ID = 4001, ParentID = 4, Text = "Attach", Height = 30},
+                        new NavBarItem {ID = 4002, ParentID = 4, Text = "CodeDom", Height = 30},
+                        new NavBarItem {ID = 4003, ParentID = 4, Text = "Clean", Height = 30},
+                        new NavBarItem {ID = 4004, ParentID = 4, Text = "Run", Height = 30}
+                    }
+                },
+                new NavBarItem {ID = 5, Text = "Build", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.nav_tool, Hover = DemoControlCS.Properties.Resources.nav_tool, Selected = DemoControlCS.Properties.Resources.nav_tool}, ToolTip = "tooltip Build", Height = 40},
+                new NavBarItem {ID = 6, Text = "Terms of Service", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.nav_info, Hover = DemoControlCS.Properties.Resources.nav_info, Selected = DemoControlCS.Properties.Resources.nav_info}, ToolTip = "tooltip EULA", Height = 40},
+                new NavBarItem {ID = 7, Text = "Extra", Icon = new ItemIcon {Default = DemoControlCS.Properties.Resources.nav_extra, Hover = DemoControlCS.Properties.Resources.nav_extra, Selected = DemoControlCS.Properties.Resources.nav_extra}, Height = 40}
+            };
 
             // Sample 2. Only 1 level childs items -------------------------------------------------
             sample2 = new List<NavBarItem> {

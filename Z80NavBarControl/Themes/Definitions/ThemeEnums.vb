@@ -9,6 +9,8 @@
 
         Dark = 0
         Blue
+        RoyalBlue
+
     End Enum
 
 End Namespace

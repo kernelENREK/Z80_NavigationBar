@@ -73,6 +73,6 @@ SAMPLES
           }
 
       Z80_Navigation1.Initialize(demoItems, New ThemeSelector(Theme.Dark).CurrentTheme)
-  End Sub
-End Class
+    End Sub
+  End Class
   

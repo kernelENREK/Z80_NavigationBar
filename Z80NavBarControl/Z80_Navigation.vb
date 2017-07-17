@@ -3,8 +3,10 @@
 '''     ChangeLog:
 '''         - Version: 1.0.0.0 / Release 11-08-2016
 '''         - Version: 1.0.0.1 / Release 05-17-2017 (Tooltip behaviour)
-'''         - Version: 1.0.0.2 / Release 05-18-2015 (AutoVerticalScrollBar propery)
-'''         - Version: 1.0.0.3 / Release 05-19-2015 (ShowItemsBorder propery)
+'''         - Version: 1.0.0.2 / Release 05-18-2017 (AutoVerticalScrollBar propery)
+'''         - Version: 1.0.0.3 / Release 05-19-2017 (ShowItemsBorder propery)
+'''         - Version: 1.0.0.4 / Release 05-19-2017 (Nuget version and Default event attribute)
+'''         - Version: 1.0.0.5 / Release 07-19-2017
 '''     
 ''' MIT license.
 ''' 
@@ -65,6 +67,13 @@ Public Class Z80_Navigation
     Public Sub New()
 
         InitializeComponent()
+
+        'Reduce blinking
+        Me.DoubleBuffered = True
+
+        Me.ShowSelectedGlyph = True
+
+        IconLocation = New Point(8, 8)
 
         ' With this stuff the Panel1 behaviour works fine when we have too many items 
         ' that don't fit in control height and don't want show the vertical (and horizontal)
@@ -299,7 +308,7 @@ Public Class Z80_Navigation
                     mPanel.Location = New Point(0, _item_yLocation)
                     mPanel.Anchor = AnchorStyles.Left Or AnchorStyles.Top Or AnchorStyles.Right
                     _item_yLocation += c.Height
-                    mPanel.Initialize(c, Me.Width, _theme, _childDepth, Me.ShowItemsBorder)
+                    mPanel.Initialize(c, Me.Width, _theme, _childDepth, Me.ShowItemsBorder, Me.ShowSelectedGlyph, Me.IconLocation)
 
                     AddHandler mPanel.ItemClick, AddressOf OnItemClick
                     Panel1.Controls.Add(mPanel)
@@ -339,7 +348,7 @@ Public Class Z80_Navigation
                 mPanel.Location = New Point(0, _item_yLocation)
                 mPanel.Anchor = AnchorStyles.Left Or AnchorStyles.Top Or AnchorStyles.Right
                 _item_yLocation += item.Height
-                mPanel.Initialize(item, Me.Width, _theme, _childDepth, Me.ShowItemsBorder)
+                mPanel.Initialize(item, Me.Width, _theme, _childDepth, Me.ShowItemsBorder, Me.ShowSelectedGlyph, Me.IconLocation)
 
                 AddHandler mPanel.ItemClick, AddressOf OnItemClick
                 Panel1.Controls.Add(mPanel)
@@ -723,6 +732,24 @@ Public Class Z80_Navigation
     <ComponentModel.Description("Show border for each navigation items")>
     Public Property ShowItemsBorder As Boolean
 
+    ''' <summary>
+    ''' Show glyph for selected item. Introduced in 1.0.0.5
+    ''' </summary>
+    ''' <returns></returns>
+    <ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Visible)>
+    <ComponentModel.Category("Appearance")>
+    <ComponentModel.Description("Show < glyph for a selected item")>
+    Public Property ShowSelectedGlyph As Boolean
+
+    ''' <summary>
+    ''' Default icon location. Introduced in 1.0.0.5
+    ''' </summary>
+    ''' <returns></returns>
+    <ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Visible)>
+    <ComponentModel.Category("Appearance")>
+    <ComponentModel.Description("Default icon location")>
+    Public Property IconLocation As Point
+
 #End Region
 
 #Region "### CUSTOM Panel ###"
@@ -777,21 +804,36 @@ Public Class Z80_Navigation
         ''' </summary>
         Private _showItemBorder As Boolean
 
+        ''' <summary>
+        ''' New property introduced in 1.0.0.5
+        ''' </summary>
+        Private _showSelectedGlyph As Boolean
+
+        ''' <summary>
+        ''' New property introduced in 1.0.0.5
+        ''' </summary>
+        Private _iconLocation As Point
+
 #End Region
 
 #Region "Initialization"
 
-        Public Sub Initialize(navItem As Z80NavBar.NavBarItem, width As Integer, theme As Z80NavBar.Themes.ITheme, depth As Integer, showItemBorder As Boolean)
+        Public Sub Initialize(navItem As Z80NavBar.NavBarItem, width As Integer, theme As Z80NavBar.Themes.ITheme, depth As Integer, showItemBorder As Boolean, showGlyph As Boolean, iconLocation As Point)
             _navItem = navItem
             _theme = theme
             _depth = depth
             _showItemBorder = showItemBorder
+            _showSelectedGlyph = showGlyph
+            _iconLocation = iconLocation
 
             Me.Height = navItem.Height
             Me.Width = width
             Me.BackColor = theme.BackgroundColor(depth)
 
             Me._tooltip = New ToolTip()
+
+            'Reduce blinking
+            Me.DoubleBuffered = True
 
             _initialized = True
         End Sub
@@ -812,7 +854,7 @@ Public Class Z80_Navigation
                 If (_navItem.Enabled) Then
                     If (_hover) Then
                         If (_navItem.Icon IsNot Nothing) Then
-                            e.Graphics.DrawImage(_navItem.Icon.Hover, New PointF(8, 8))
+                            e.Graphics.DrawImage(_navItem.Icon.Hover, Me._iconLocation)
                         End If
                         e.Graphics.DrawString(_navItem.Text, _theme.FontItem(_depth), _theme.BrushFontHover(_depth), New PointF(xPos, yPos))
                         'hover backcolor only in root nodes and items with 'childs'
@@ -832,7 +874,7 @@ Public Class Z80_Navigation
                     Else 'not hover
                         If (Not _navItem.Selected) Then
                             If (_navItem.Icon IsNot Nothing) Then
-                                e.Graphics.DrawImage(_navItem.Icon.Default, New PointF(8, 8))
+                                e.Graphics.DrawImage(_navItem.Icon.Default, Me._iconLocation)
                             End If
 
                             e.Graphics.DrawString(_navItem.Text, _theme.FontItem(_depth), _theme.BrushFontItemNotSelected(_depth), New PointF(xPos, yPos))
@@ -849,14 +891,14 @@ Public Class Z80_Navigation
                             End If
                         Else 'selected Item
                             If (_navItem.Icon IsNot Nothing) Then
-                                e.Graphics.DrawImage(_navItem.Icon.Selected, New PointF(8, 8))
+                                e.Graphics.DrawImage(_navItem.Icon.Selected, Me._iconLocation)
                             End If
                             e.Graphics.DrawString(_navItem.Text, _theme.FontItemSelected(_depth), _theme.BrushFontItemSelected(_depth), New PointF(xPos, yPos))
                             If (IsNothing(_navItem.ParentID) OrElse (_navItem.Childs IsNot Nothing AndAlso _navItem.Childs.Count > 0)) Then
                                 Me.BackColor = _theme.SelectedBackgroundColor(_depth)
                                 If (_showItemBorder) Then e.Graphics.DrawRectangle(_theme.BorderSolidColor(_depth), 0, 0, Me.Width - 1, Me.Height)
                                 ' < glyph:
-                                If (_navItem.Content) Then
+                                If (_navItem.Content AndAlso _showSelectedGlyph) Then
                                     Dim p1 As New Point(Me.Width - 8, Me.Height / 2)
                                     Dim p2 As New Point(Me.Width, ((Me.Height / 2) - 8))
                                     Dim p3 As New Point(Me.Width, ((Me.Height / 2) + 8))

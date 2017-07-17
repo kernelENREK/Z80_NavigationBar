@@ -118,6 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="nav_bulb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_bulb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_extra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_extra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nav_tool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nav_tool.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="orionCollapse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orionCollapse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="orionLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\orionLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wpAppearance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wpAppearance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Z80NavigationBar</id>
-    <version>1.0.0.4</version>
+    <version>1.0.0.5</version>
     <title>Winforms user control for navigation control</title>
     <authors>Zilog80</authors>
     <owners>Zilog80</owners>

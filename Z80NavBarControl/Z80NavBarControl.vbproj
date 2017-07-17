@@ -82,6 +82,7 @@
     <Compile Include="NavBarItem.vb" />
     <Compile Include="Themes\Definitions\BlueTheme.vb" />
     <Compile Include="Themes\Definitions\DarkTheme.vb" />
+    <Compile Include="Themes\Definitions\RoyalTheme.vb" />
     <Compile Include="Themes\Definitions\ThemeEnums.vb" />
     <Compile Include="Themes\ITheme.vb" />
     <Compile Include="Themes\ThemeSelector.vb" />

@@ -34,5 +34,11 @@ namespace DemoControlCS
             FrmDemo3 f = new FrmDemo3();
             f.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmDemoOrion f = new FrmDemoOrion();
+            f.ShowDialog();
+        }
     }
 }

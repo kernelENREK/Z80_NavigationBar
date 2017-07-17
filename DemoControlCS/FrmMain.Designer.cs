@@ -34,6 +34,8 @@
             this.BtnDemo3 = new System.Windows.Forms.Button();
             this.BtnDemo2 = new System.Windows.Forms.Button();
             this.BtnDemo1 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Label3
@@ -99,11 +101,34 @@
             this.BtnDemo1.UseVisualStyleBackColor = true;
             this.BtnDemo1.Click += new System.EventHandler(this.BtnDemo1_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 183);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 35);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "Demo #4";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(93, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "ORION sample";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label1);
@@ -128,6 +153,8 @@
         internal System.Windows.Forms.Button BtnDemo3;
         internal System.Windows.Forms.Button BtnDemo2;
         internal System.Windows.Forms.Button BtnDemo1;
+        internal System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.Label label4;
     }
 }
 

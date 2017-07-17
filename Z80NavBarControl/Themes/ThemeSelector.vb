@@ -15,6 +15,8 @@
                     CurrentTheme = New DarkTheme
                 Case theme.Blue
                     CurrentTheme = New BlueTheme
+                Case Theme.RoyalBlue
+                    CurrentTheme = New RoyalTheme
             End Select
         End Sub
 

@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DemoControlCS</RootNamespace>
     <AssemblyName>DemoControlCS</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,6 +67,12 @@
     <Compile Include="FrmDemo3.Designer.cs">
       <DependentUpon>FrmDemo3.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDemoOrion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDemoOrion.Designer.cs">
+      <DependentUpon>FrmDemoOrion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDemo3.resx">
       <DependentUpon>FrmDemo3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDemoOrion.resx">
+      <DependentUpon>FrmDemoOrion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -222,6 +232,33 @@
       <Project>{D893BDAB-6276-4BC6-892F-D1193FBA8F3C}</Project>
       <Name>Z80NavBarControl</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_bulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_extra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orionCollapse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orionLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
